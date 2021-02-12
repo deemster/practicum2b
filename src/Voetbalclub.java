@@ -8,20 +8,30 @@ public class Voetbalclub {
     public void verwerkResultaat(char ch) {
         if (ch == 'w')
             aantalGewonnen = aantalGewonnen + 1;
-        if (ch == 'g')
+        else if (ch == 'g')
             aantalGelijk = aantalGelijk + 1;
-        if (ch == 'v')
+        else if (ch == 'v')
             aantalVerloren = aantalVerloren + 1;
+        else {
+            System.out.println(ch + " kan niet als optie worden ingevoerd, kies een andere optie.");
+        }
     }
     public Voetbalclub(String naam){
+        if (naam.equals("")) {
+            naam = "FC";
+        }
         this.Naam = naam;
+    }
+
+    public String getNaam() {
+        return this.Naam;
     }
 
     public int aantalGespeeld() {
         return aantalGewonnen + aantalGelijk + aantalVerloren;
     }
     public int aantalPunten(){
-       int aantalGewonnen = (this.aantalGewonnen * 3);
+        int aantalGewonnen = (this.aantalGewonnen * 3);
         return aantalGewonnen + this.aantalGelijk;
     }
     public String toString(){
